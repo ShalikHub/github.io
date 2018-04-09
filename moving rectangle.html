@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html class="gr__naturalprogramming_com"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+<title>MovingRectangle.html </title>
+
+
+
+<style type="text/css">
+#centered_container
+{
+   position: absolute ;
+   top: 30px ;
+   left: 50% ;
+   width:  800px ;
+   height: 600px ;
+   margin-left: -400px ;
+   background-color: AliceBlue ;
+   border: 1px solid LightSkyBlue ;
+}
+#centered_ui_components
+{
+   text-align: center;   /* This centers the buttons etc. */
+   background-color: LightSkyBlue ; /* Somewhat darker than AliceBlue */
+}
+#moving_rectangle
+{
+   position: absolute;
+   width: 240px ;
+   height: 200px ;
+   left: 276px ;   /* "container width" / 2 - "rectangle width" / 2 - "border width"
+                       800 / 2 - 240 / 2 - 4 */
+   top:  200px ;
+   background-color: red ;
+   border: 6px solid black ;
+}
+</style>
+
+<script type="text/javascript">
+   var rectangle_position_left = 276 ;
+   var rectangle_position_top  = 200 ;
+   var rectangle_position_width = 240;
+   var rectangle_position_height = 200;
+   function left_button_clicked()
+   {
+      rectangle_position_left -= 4 ;
+      rectangle_element = document.getElementById( "moving_rectangle" ) ;
+      // Here we set style property named "left". The value being set
+      // is a string. Operator + converts the value of variable
+      // rectangle_position_left to a string and adds the string "px"
+      // to the string.
+      rectangle_element.style.left = rectangle_position_left + "px" ;
+      console.log( "\n left " + rectangle_element.style.left ) ; 
+   }
+   function large_button_clicked(){
+    rectangle_position_width += 8;
+    rectangle_position_height += 10;
+    rectangle_element.style.width = rectangle_position_width + "px";
+    rectangle_element.style.height = rectangle_position_height + "px";
+  }
+    function small_button_clicked(){
+    rectangle_position_width -= 4;
+    rectangle_position_height -= 4;
+    rectangle_element.style.width = rectangle_position_width + "px";
+    rectangle_element.style.height = rectangle_position_height + "px"
+  }
+   function down_button_clicked()
+   {
+      rectangle_position_top += 4 ;
+      rectangle_element = document.getElementById( "moving_rectangle" ) ;
+      rectangle_element.style.top = rectangle_position_top + "px" ;
+   }
+   function up_button_clicked()
+   {
+      rectangle_position_top -= 4 ;
+      rectangle_element = document.getElementById( "moving_rectangle" ) ;
+      rectangle_element.style.top = rectangle_position_top + "px" ;
+   }
+   function right_button_clicked()
+   {
+      rectangle_position_left += 4 ;
+      rectangle_element = document.getElementById( "moving_rectangle" ) ;
+      rectangle_element.style.left = rectangle_position_left + "px" ;
+   }
+   function change_rectangle_color()
+   {
+      // The color specifications in the following array
+      // must match the order of colors in the HTML <select> tag.
+      // Colors can be specified either with numerical values, or with
+      // strings that are listed, for example, in the following page
+      // http://www.w3schools.com/html/html_colornames.asp
+      var selectable_colors = [ "Red", "Green", "Blue", "Yellow", "Magenta",
+                                "rgb( 0, 255, 255 )",   // Color "Cyan"
+                                "rgb( 255, 255, 255 )", // Color "White"
+                                "Khaki", "Gray", "Olive","lawngreen" ] ;
+      var color_index =
+             document.getElementById( "color_selection_list" ).selectedIndex ;
+      rectangle_element = document.getElementById( "moving_rectangle" ) ;
+      rectangle_element.style.background = selectable_colors[ color_index ] ;
+   }
+   function reset_button_clicked()
+  {
+   location.reload();
+  }
+</script>
+
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+   <div id="centered_container">
+
+      <div id="centered_ui_components">
+         <!-- With the <button> tag we can define buttons and specify the methods
+              that will be called when the buttons are pressed. Buttons
+              could alternatively be defined with the <input> tag.
+              In HTML we must write &lt; and &gt; in order to produce the
+              characters < and >, i.e., 'less than' and 'greater than'. -->
+
+         <button onclick="left_button_clicked()">  &lt;  </button>
+         <button onclick="down_button_clicked()"> Down </button>
+         <button onclick="up_button_clicked()">  Up  </button>
+         <button onclick="right_button_clicked()">  &gt;  </button>
+         <button onclick="reset_button_clicked()">  Reset  </button>
+         <button onclick="large_button_clicked()">  large  </button>
+         <button onclick="small_button_clicked()">  small  </button>
+         <input type="radio" name = "border" onclick="border_button_clicked()"> 
+
+         <!-- With the <select> tag we create a drop-down list. The selectable
+              options are defined with the <option> tag. The method 
+              change_rectangle_color() will be called automatically when the user
+              makes a selection. -->
+
+         <select id="color_selection_list" onchange="change_rectangle_color()">
+            <option selected="">Red</option>
+            <option>Green</option>
+            <option>Blue</option>
+            <option>Yellow</option>
+            <option>Magenta</option>
+            <option>Cyan</option>
+            <option>White</option>
+            <option>Khaki</option>
+            <option>Gray</option>
+            <option>Olive</option>
+            <option>lawn green</option>
+
+         </select>
+
+      </div> <!-- end of centered_ui_components -->
+
+      <!-- The content of the following <div> is empty as its properties are
+           specified with a CSS definition. -->
+
+      <div id="moving_rectangle">
+      </div>
+
+   </div> <!-- end of centered_container  -->
+
+
+
+<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./Rectangle_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" style="display: none;" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}"></div></body></html>

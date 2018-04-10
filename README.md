@@ -1,2 +1,2 @@
 # github.io
-My portfolio with lab projects
+some of my small and independent project can be used in future
